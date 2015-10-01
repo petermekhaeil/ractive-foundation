@@ -231,6 +231,11 @@ Ractive.components['ux-iconbaritem'] = Ractive.extend({
 
 });
 
+Ractive.components['ux-keystrokes'] = Ractive.extend({
+	isolated: true,
+	template: Ractive.defaults.templates['ux-keystrokes']
+});
+
 Ractive.components['ux-label'] = Ractive.extend({
 	isolated: true,
 	template: Ractive.defaults.templates['ux-label']
@@ -313,9 +318,10 @@ Ractive.components['ux-orbit'] = Ractive.extend({
 	oninit: function () {
 
 		this.on('nextPage', function (e) {
-			var nextPage = this.get('currentPage') + 1;
-			// FIXME Quick hack for bounds.
-			nextPage = nextPage > 5 ? 5 : nextPage;
+			var nextPage = this.get('currentPage') + 1,
+				slideTotal = this.get('slidesTotal');
+
+			nextPage = nextPage > slideTotal ? slideTotal : nextPage;
 			this.set('currentPage', nextPage);
 			return false;
 		});
