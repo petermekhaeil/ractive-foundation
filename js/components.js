@@ -33,6 +33,7 @@ Ractive.components['ux-accordion'] = Ractive.extend({
 
 			});
 
+			return false;
 		});
 
 	}
@@ -222,6 +223,10 @@ Ractive.components['ux-iconbaritem'] = Ractive.extend({
 	template: Ractive.defaults.templates['ux-iconbaritem'],
 
 	isolated: true,
+
+	data: {
+		labels: true
+	},
 
 	computed: {
 		guid: function () {
@@ -498,6 +503,9 @@ Ractive.components['ux-thumbnail'] = Ractive.extend({
 	template: Ractive.defaults.templates['ux-thumbnail']
 });
 
+Ractive.components['ux-tooltip'] = Ractive.extend({
+	template: Ractive.defaults.templates['ux-tooltip'],
+});
 Ractive.components['ux-top-bar'] = Ractive.extend({
 
 	template: Ractive.defaults.templates['ux-top-bar'],
